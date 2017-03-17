@@ -22,6 +22,12 @@ def split_sentences_into_tokens(sentence):
     return word_tokenize(sentence)
 
 
+def ann_test(tokens):
+    """Takes a tokenized sentence and tests if it is an Ann adjective"""
+    if tokens[0] == "Ann" and tokens[1] == ',' and tokens[2] == 'you':
+        return True
+
+
 def main():
     transcript = "transcript.txt"
     text = read_text(transcript)
@@ -29,7 +35,9 @@ def main():
 
     tokenized_sentences = [split_sentences_into_tokens(sentence)
                            for sentence in sentences]
-    print(tokenized_sentences)
+    ann_sentences = [sent_tokens for sent_tokens in
+                     tokenized_sentences if ann_test(sent_tokens)]
+    print(ann_sentences)
 
 
 if __name__ == '__main__':
