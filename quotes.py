@@ -1,9 +1,12 @@
 # python 3
 
+"""Expects a file in the repository named 'transcript.txt'
+    that contains your text."""
 
 import nltk
 from nltk import word_tokenize
 import string
+
 
 def read_text(file):
     """Takes a file and reads it in."""
